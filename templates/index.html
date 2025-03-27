@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Modern Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #e0f7fa, #e1bee7);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .banner {
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .main-box {
+            background-color: white;
+            border-radius: 16px;
+            padding: 40px 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .btn-custom {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- 배너 -->
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='banner.jpg') }}" class="img-fluid banner" alt="배너 이미지">
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-box text-center mt-4">
+            <h1 class="mb-4">Flask 로그인 데모</h1>
+
+            {% if current_user.is_authenticated %}
+                 <h4><strong>{{ current_user.username }}</strong>님, 반갑습니다! 🎉</h4>
+                <div class="mt-4">
+                    <a href="{{ url_for('mypage') }}" class="btn btn-info btn-custom me-2">마이페이지</a>
+                    <a href="{{ url_for('board') }}" class="btn btn-warning btn-custom me-2">📋 게시판</a>
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-custom">로그아웃</a>
+                </div>
+            {% else %}
+            <p>아직 계정이 없으신가요? 지금 가입하고 시작해보세요!</p>
+    <div class="mt-4">
+        <a href="{{ url_for('login') }}" class="btn btn-primary btn-custom me-2">로그인</a>
+        <a href="{{ url_for('register') }}" class="btn btn-success btn-custom me-2">회원가입</a>
+        <a href="{{ url_for('board') }}" class="btn btn-warning btn-custom">📋 게시판</a>
+    </div>
+{% endif %}
+
+        </div>
+    </div>
+</body>
+</html>

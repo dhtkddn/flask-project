@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2>{{ username }}님, 환영합니다!</h2>
+    <p>이곳은 로그인한 사용자만 볼 수 있는 마이페이지입니다.</p>
+    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">로그아웃</a>
+</div>
+{% endblock %}

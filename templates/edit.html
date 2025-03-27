@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>✏️ 글 수정</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label>제목</label>
+            <input type="text" name="title" value="{{ post.title }}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>내용</label>
+            <textarea name="content" rows="6" class="form-control" required>{{ post.content }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">수정 완료</button>
+    </form>
+</div>
+{% endblock %}

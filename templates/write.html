@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4" style="max-width:600px;">
+    <h4>✏️ 새 글 작성</h4>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input type="text" name="title" placeholder="제목" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <textarea name="content" placeholder="내용" rows="5" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label>이미지 첨부</label>
+            <input type="file" name="image" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">작성 완료</button>
+    </form>
+</div>
+{% endblock %}
